@@ -2,12 +2,16 @@
 -- PostgreSQL database dump
 --
 
+-- Dumped from database version 9.5.4
+-- Dumped by pg_dump version 9.5.4
+
 SET statement_timeout = 0;
 SET lock_timeout = 0;
 SET client_encoding = 'UTF8';
 SET standard_conforming_strings = on;
 SET check_function_bodies = false;
 SET client_min_messages = warning;
+SET row_security = off;
 
 --
 -- Name: plpgsql; Type: EXTENSION; Schema: -; Owner: 
@@ -30,12 +34,15 @@ SET default_tablespace = '';
 SET default_with_oids = false;
 
 --
--- Name: animals; Type: TABLE; Schema: public; Owner: Guest; Tablespace: 
+-- Name: animals; Type: TABLE; Schema: public; Owner: Guest
 --
 
 CREATE TABLE animals (
     id integer NOT NULL,
-    name character varying
+    name character varying,
+    endanger character varying,
+    health character varying,
+    age character varying
 );
 
 
@@ -63,13 +70,15 @@ ALTER SEQUENCE animals_id_seq OWNED BY animals.id;
 
 
 --
--- Name: sightings; Type: TABLE; Schema: public; Owner: Guest; Tablespace: 
+-- Name: sightings; Type: TABLE; Schema: public; Owner: Guest
 --
 
 CREATE TABLE sightings (
     id integer NOT NULL,
-    name character varying,
-    location character varying
+    location character varying,
+    rangername character varying,
+    animalid integer,
+    timesighted timestamp without time zone
 );
 
 
@@ -114,7 +123,7 @@ ALTER TABLE ONLY sightings ALTER COLUMN id SET DEFAULT nextval('sightings_id_seq
 -- Data for Name: animals; Type: TABLE DATA; Schema: public; Owner: Guest
 --
 
-COPY animals (id, name) FROM stdin;
+COPY animals (id, name, endanger, health, age) FROM stdin;
 \.
 
 
@@ -129,7 +138,7 @@ SELECT pg_catalog.setval('animals_id_seq', 1, false);
 -- Data for Name: sightings; Type: TABLE DATA; Schema: public; Owner: Guest
 --
 
-COPY sightings (id, name, location) FROM stdin;
+COPY sightings (id, location, rangername, animalid, timesighted) FROM stdin;
 \.
 
 
@@ -141,7 +150,7 @@ SELECT pg_catalog.setval('sightings_id_seq', 1, false);
 
 
 --
--- Name: animals_pkey; Type: CONSTRAINT; Schema: public; Owner: Guest; Tablespace: 
+-- Name: animals_pkey; Type: CONSTRAINT; Schema: public; Owner: Guest
 --
 
 ALTER TABLE ONLY animals
@@ -149,7 +158,7 @@ ALTER TABLE ONLY animals
 
 
 --
--- Name: sightings_pkey; Type: CONSTRAINT; Schema: public; Owner: Guest; Tablespace: 
+-- Name: sightings_pkey; Type: CONSTRAINT; Schema: public; Owner: Guest
 --
 
 ALTER TABLE ONLY sightings
