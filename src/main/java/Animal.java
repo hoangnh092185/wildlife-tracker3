@@ -10,6 +10,8 @@ import java.text.DateFormat;
 public class Animal {
   private String name;
   private String endanger;
+  private String health;
+  private String age;
   private int id;
 
   public Animal(String name, String endanger) {
@@ -22,6 +24,12 @@ public class Animal {
   }
   public String getEndanger(){
     return endanger;
+  }
+  public String getHealth(){
+    return health;
+  }
+  public String getAge(){
+    return age;
   }
   public int getId(){
     return id;
@@ -66,6 +74,8 @@ public class Animal {
       this.id = (int) con.createQuery(sql, true)
         .addParameter("name", this.name)
         .addParameter("endanger", this.endanger)
+        .addParameter("health", this.health)
+        .addParameter("age", this.age)
         .executeUpdate()
         .getKey();
     }
