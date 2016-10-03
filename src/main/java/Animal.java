@@ -1,5 +1,7 @@
-import org.junit.*;
 import org.sql2o.*;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Arrays;
 import java.sql.Timestamp;
 import java.util.Date;
 import java.text.DateFormat;
@@ -52,7 +54,7 @@ public class Animal {
   public static Animal find (int _id){
     try(Connection con = DB.sql2o.open()){
       String sql = "SELECT * FROM animals where id=:id";
-      Anaimal animal = con.createQuery(sql)
+      Animal animal = con.createQuery(sql)
         .addParameter("id", _id)
         .executeAndFetchFirst(Animal.class);
         return animal;
