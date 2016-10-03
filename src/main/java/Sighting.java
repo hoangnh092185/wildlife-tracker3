@@ -2,13 +2,17 @@ import java.util.List;
 import java.util.ArrayList;
 import java.util.Arrays;
 import org.sql2o.*;
+import java.sql.Timestamp;
+import java.text.DateFormat;
+import java.util.Timer;
+import java.util.TimerTask;
 
 public class Sighting {
   private int id;
   private String location;
   private int animalId;
   private String rangerName;
-  private int endangerAnimalId;
+  private Timestamp timeSighted;
 
   public Sighting(String location, String rangerName, int animalId){
     this.location = location;
@@ -27,14 +31,10 @@ public class Sighting {
   public int getAnimalId(){
     return animalId;
   }
-  public int getEndangerAnimalId(){
-    return endangerAnimalId;
+  public Timestamp getTimeSighted(){
+    return timeSighted;
   }
-  // public boolean isEndanger(){
-  //   if (endanger == 0){
-  //     return false;
-  //   }return true;
-  // }
+
   @Override
   public boolean equals(Object otherSighting){
     if(!(otherSighting instanceof Sighting)){
@@ -56,7 +56,7 @@ public class Sighting {
   }
   public void save(){
     try(Connection con = DB.sql2o.open()){
-      String sql = "INSERT INTO sightings(location, rangername, animalid) VALUES(:location, :rangername, :animalid)";
+      String sql = "INSERT INTO sightings(location, rangername, animalid, timesighted) VALUES(:location, :rangername, :animalid, now())";
       this.id = (int) con.createQuery(sql, true)
         .addParameter("location", this.location)
         .addParameter("rangername", this.rangerName)

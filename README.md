@@ -24,8 +24,8 @@ Spark routes fallow RESTful convention.
 
 In PSQL:
 * CREATE DATABASE wildlife_tracker;
-* CREATE TABLE animals (id serial PRIMAY KEY, name varchar);
-* CREATE TABLE sightings (id serial PRIMARY KEY, name varchar, health varchar, age varchar);
+* CREATE TABLE animals (id serial PRIMAY KEY, name varchar, endanger varchar, health varchar, age varchar);
+* CREATE TABLE sightings (id serial PRIMARY KEY, location varchar, rangername varchar, animalid int);
 * CREATE DATABASE wildlife_tracker_test WITH TEMPLATE wildlife_tracker;
 
 ### Setup/Installation

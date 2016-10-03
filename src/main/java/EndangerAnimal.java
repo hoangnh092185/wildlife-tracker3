@@ -5,11 +5,12 @@
 // import java.text.DateFormat;
 //
 //
-// public class EndangerAnimal {
+// public class EndangerAnimal extends Animal {
 //   private String name;
 //   private String health;
 //   private String age;
 //   private int id;
+//   // public static final String Database_TYPE = "endanger";
 //
 //   public EndangerAnimal(String name, String health, String age) {
 //     this.name = name;
@@ -36,8 +37,9 @@
 //     }else {
 //       EndangerAnimal newEndangerAnimal = (EndangerAnimal) otherEndangerAnimal;
 //       return this.getName().equals(newEndangerAnimal.getName()) &&
-//               this.getEndanger().equals(newEndangerAnimal.getEndanger()) &&
-//         this.getId() == newEndangerAnimal.getId();
+//               this.getHealth().equals(newEndangerAnimal.getHealth()) &&
+//               this.getAge().equals(newEndangerAnimal.getAge()) &&
+//               this.getId() == newEndangerAnimal.getId();
 //     }
 //   }
 //   public static List<EndangerAnimal> all() {
@@ -57,7 +59,7 @@
 //   public static EndangerAnimal find (int _id){
 //     try(Connection con = DB.sql2o.open()){
 //       String sql = "SELECT * FROM animals where id=:id";
-//       Anaimal animal = con.createQuery(sql)
+//       Animal animal = con.createQuery(sql)
 //         .addParameter("id", _id)
 //         .executeAndFetchFirst(EndangerAnimal.class);
 //         return animal;
