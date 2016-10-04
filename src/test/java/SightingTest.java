@@ -67,6 +67,4 @@ public class SightingTest{
       secondSighting.save();
       assertEquals(Sighting.find(secondSighting.getId()), secondSighting);
     }
-
-
 }

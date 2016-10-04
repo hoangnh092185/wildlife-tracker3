@@ -82,7 +82,7 @@ public class Sighting {
       .executeUpdate();
     }
   }
-  public void update(String newLocation) {
+  public void updateSighting(String newLocation) {
     try(Connection con = DB.sql2o.open()){
       String sql = "UPDATE sightings SET location = :location WHERE id = :id";
       con.createQuery(sql)
