@@ -5,35 +5,40 @@ import java.util.Arrays;
 import java.sql.Timestamp;
 import java.util.Date;
 import java.text.DateFormat;
+// import org.junit.*;
+// import static org.junit.Assert.*;
 
 
-public class Animal {
-  private String name;
-  private String endanger;
-  private String health;
-  private String age;
-  private int id;
+public abstract class Animal {
+  public String name;
+  public String type;
+  public int id;
 
-  public Animal(String name, String endanger) {
-    this.name = name;
-    this.endanger = endanger;
-  }
+
+
+  // public Animal(String _name, String _type) {
+  //   name = _name;
+  //   type = _type;
+  // }
 
   public String getName(){
     return name;
   }
-  public String getEndanger(){
-    return endanger;
+  public String getType(){
+    return type;
   }
-  public String getHealth(){
-    return health;
-  }
-  public String getAge(){
-    return age;
-  }
+  // public String getHealth(){
+  //   return health;
+  // }
+  // public String getAge(){
+  //   return age;
+  // }
   public int getId(){
     return id;
   }
+  // public String getType(){
+  //   return type;
+  // }
   @Override
   public boolean equals(Object otherAnimal){
     if(!(otherAnimal instanceof Animal)){
@@ -41,16 +46,16 @@ public class Animal {
     }else {
       Animal newAnimal = (Animal) otherAnimal;
       return this.getName().equals(newAnimal.getName()) &&
-              this.getEndanger().equals(newAnimal.getEndanger()) &&
+              this.getType().equals(newAnimal.getType()) &&
         this.getId() == newAnimal.getId();
     }
   }
-  public static List<Animal> all() {
-    String sql = "SELECT * FROM animals";
-    try(Connection con = DB.sql2o.open()){
-      return con.createQuery(sql).executeAndFetch(Animal.class);
-    }
-  }
+  // public static List<Animal> all() {
+  //   String sql = "SELECT * FROM animals";
+  //   try(Connection con = DB.sql2o.open()){
+  //     return con.createQuery(sql).executeAndFetch(Animal.class);
+  //   }
+  // }
   public List<Sighting> getSighting(){
     try(Connection con = DB.sql2o.open()){
       String sql = "SELECT * FROM sightings where animalId=:id";
@@ -70,12 +75,10 @@ public class Animal {
   }
   public void save() {
     try(Connection con = DB.sql2o.open()){
-      String sql = "INSERT INTO animals(name, endanger, health, age) VALUES(:name, :endanger, :health, :age)";
+      String sql = "INSERT INTO animals(name, type) VALUES(:name, :type)";
       this.id = (int) con.createQuery(sql, true)
         .addParameter("name", this.name)
-        .addParameter("endanger", this.endanger)
-        .addParameter("health", this.health)
-        .addParameter("age", this.age)
+        .addParameter("type", this.type)
         .executeUpdate()
         .getKey();
     }

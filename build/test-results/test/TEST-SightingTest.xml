@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="SightingTest" tests="9" skipped="0" failures="0" errors="0" timestamp="2016-10-04T01:13:10" hostname="epicodus-7.local" time="0.099">
+<testsuite name="SightingTest" tests="9" skipped="0" failures="0" errors="0" timestamp="2016-10-04T03:27:13" hostname="epicodus-7.local" time="0.109">
   <properties/>
-  <testcase name="save_insertsObjectIntoDatabase_sighting" classname="SightingTest" time="0.015"/>
+  <testcase name="save_insertsObjectIntoDatabase_sighting" classname="SightingTest" time="0.016"/>
   <testcase name="sighting_instantiatesCorrectly_true" classname="SightingTest" time="0.005"/>
-  <testcase name="all_returnsAllInstancesOfSighting_true" classname="SightingTest" time="0.024"/>
-  <testcase name="find_returnsSightingWithSameId_secondSighting" classname="SightingTest" time="0.019"/>
-  <testcase name="equals_returnsTrueIfNameAndEmailAreSame_true" classname="SightingTest" time="0.007"/>
-  <testcase name="getRangerName_sightingInstantiatesWithEndanger_String" classname="SightingTest" time="0.005"/>
-  <testcase name="getAnimalId_sightingInstantiatesWithEndanger_int" classname="SightingTest" time="0.004"/>
-  <testcase name="save_assignsIdToObject" classname="SightingTest" time="0.014"/>
+  <testcase name="all_returnsAllInstancesOfSighting_true" classname="SightingTest" time="0.029"/>
+  <testcase name="find_returnsSightingWithSameId_secondSighting" classname="SightingTest" time="0.018"/>
+  <testcase name="equals_returnsTrueIfNameAndEmailAreSame_true" classname="SightingTest" time="0.008"/>
+  <testcase name="getRangerName_sightingInstantiatesWithEndanger_String" classname="SightingTest" time="0.007"/>
+  <testcase name="getAnimalId_sightingInstantiatesWithEndanger_int" classname="SightingTest" time="0.006"/>
+  <testcase name="save_assignsIdToObject" classname="SightingTest" time="0.015"/>
   <testcase name="getLocation_sightingInstantiatesWithName_String" classname="SightingTest" time="0.004"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
