@@ -35,12 +35,6 @@ public class App {
       return new ModelAndView(model, layout);
     }, new VelocityTemplateEngine());
 
-    // get("/wildlife", (request, response)->{
-    //   Map<String, Object> model = new HashMap<String, Object>();
-    //   model.put("template","templates/wildlifeList.vtl");
-    //   return new ModelAndView(model, layout);
-    //   }, new VelocityTemplateEngine());
-
     post("/nonendanger", (request, response)->{
       Map<String, Object> model = new HashMap<String, Object>();
       NonEndangerAnimal newNonEndanger = new NonEndangerAnimal(request.queryParams("name"));
@@ -48,7 +42,7 @@ public class App {
       Sighting newSighting = new Sighting(request.queryParams("location"), request.queryParams("rangername"), newNonEndanger.getId());
       newSighting.save();
       model.put("animals", NonEndangerAnimal.all());
-      // response.redirect("/wildlife-list");
+      model.put("sightings", Sighting.all());
       model.put("template","templates/wild.vtl");
       return new ModelAndView(model, layout);
     }, new VelocityTemplateEngine());
@@ -59,7 +53,9 @@ public class App {
       newEndanger.saveEndanger();
       Sighting newSighting = new Sighting(request.queryParams("location"), request.queryParams("rangername"), newEndanger.getId());
       newSighting.save();
-      model.put("template","templates/wildlifeList.vtl");
+      model.put("animals", EndangerAnimal.all());
+      model.put("sightings", Sighting.all());
+      model.put("template","templates/wild.vtl");
       return new ModelAndView(model, layout);
     }, new VelocityTemplateEngine());
 
