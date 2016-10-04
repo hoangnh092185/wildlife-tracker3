@@ -18,6 +18,17 @@ public class NonEndangerAnimal extends Animal {
   public String getName(){
     return name;
   }
+  public void saveNon() {
+    try(Connection con = DB.sql2o.open()){
+      String sql = "INSERT INTO animals(name, type) VALUES(:name, :type)";
+      this.id = (int) con.createQuery(sql, true)
+        .addParameter("name", this.name)
+        .addParameter("type", type)
+        .throwOnMappingFailure(false)
+        .executeUpdate()
+        .getKey();
+    }
+  }
 
   public static List<NonEndangerAnimal> all() {
     String sql = "SELECT * FROM animals WHERE type='nonendanger';";

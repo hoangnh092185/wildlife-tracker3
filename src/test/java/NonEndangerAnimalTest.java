@@ -35,31 +35,31 @@ public class NonEndangerAnimalTest {
   @Test
   public void save_insertsObjectIntoDatabase_animal() {
     NonEndangerAnimal firstNonEndangerAnimal = new NonEndangerAnimal("Batman");
-    firstNonEndangerAnimal.save();
+    firstNonEndangerAnimal.saveNon();
     assertTrue(NonEndangerAnimal.all().get(0).equals(firstNonEndangerAnimal));
   }
   @Test
   public void allNonEndanger_returnsAllInstancesOfNonEndangerAnimal_true() {
     NonEndangerAnimal firstNonEndangerAnimal = new NonEndangerAnimal("Batman");
-    firstNonEndangerAnimal.save();
+    firstNonEndangerAnimal.saveNon();
     NonEndangerAnimal secondNonEndangerAnimal = new NonEndangerAnimal("Robbin");
-    secondNonEndangerAnimal.save();
+    secondNonEndangerAnimal.saveNon();
     assertEquals(true, NonEndangerAnimal.all().get(0).equals(firstNonEndangerAnimal));
     assertEquals(true, NonEndangerAnimal.all().get(1).equals(secondNonEndangerAnimal));
   }
   @Test
    public void save_assignsIdToObject() {
      NonEndangerAnimal testNonEndangerAnimal = new NonEndangerAnimal("Batman");
-     testNonEndangerAnimal.save();
+     testNonEndangerAnimal.saveNon();
      NonEndangerAnimal savedNonEndangerAnimal = NonEndangerAnimal.all().get(0);
      assertEquals(testNonEndangerAnimal.getId(), savedNonEndangerAnimal.getId());
    }
    @Test
     public void find_returnsNonEndangerAnimalWithSameId_secondNonEndangerAnimal() {
       NonEndangerAnimal firstNonEndangerAnimal = new NonEndangerAnimal("Batman");
-      firstNonEndangerAnimal.save();
+      firstNonEndangerAnimal.saveNon();
       NonEndangerAnimal secondNonEndangerAnimal = new NonEndangerAnimal("Robbin");
-      secondNonEndangerAnimal.save();
+      secondNonEndangerAnimal.saveNon();
       assertEquals(NonEndangerAnimal.find(secondNonEndangerAnimal.getId()), secondNonEndangerAnimal);
     }
 

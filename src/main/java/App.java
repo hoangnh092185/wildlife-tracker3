@@ -29,8 +29,16 @@ public class App {
       return new ModelAndView(model, layout);
     }, new VelocityTemplateEngine());
 
+  // get("/wildlife-list", (request,response) ->{
+  //     Map<String, Object> model = new HashMap<String, Object>();
+  //     model.put("animals", )
+  //     model.put("template","templates/wildlifeList.vtl");
+  //     return new ModelAndView(model, layout);
+  //   }, new VelocityTemplateEngine());
+
     get("/wildlife-list", (request, response)->{
       Map<String, Object> model = new HashMap<String, Object>();
+
       model.put("template","templates/wildlifeList.vtl");
       return new ModelAndView(model, layout);
       }, new VelocityTemplateEngine());
@@ -41,7 +49,9 @@ public class App {
       newNonEndanger.save();
       Sighting newSighting = new Sighting(request.queryParams("location"), request.queryParams("rangername"), newNonEndanger.getId());
       newSighting.save();
-      model.put("template","templates/wildlifeList.vtl");
+      model.put("animals", NonEndangerAnimal.all());
+      response.redirect("/wildlife-list");
+      // model.put("template","templates/wildlifeList.vtl");
       return new ModelAndView(model, layout);
     }, new VelocityTemplateEngine());
 

@@ -7,7 +7,7 @@ import java.util.Date;
 import java.text.DateFormat;
 
 public class EndangerAnimal extends Animal {
-  private String name;
+
   private String health;
   private String age;
 
@@ -28,9 +28,9 @@ public class EndangerAnimal extends Animal {
     type = DATABASE_TYPE;
   }
 
-  public String getName(){
-    return name;
-  }
+  // public String getName(){
+  //   return name;
+  // }
   public String getHealth(){
     return health;
   }
@@ -38,29 +38,16 @@ public class EndangerAnimal extends Animal {
     return age;
   }
 
-  @Override
-  public boolean equals(Object otherEndangerAnimal){
-    if(!(otherEndangerAnimal instanceof EndangerAnimal)){
-      return false;
-    }else {
-      EndangerAnimal newEndangerAnimal = (EndangerAnimal) otherEndangerAnimal;
-      return this.getName().equals(newEndangerAnimal.getName()) &&
-              this.getHealth().equals(newEndangerAnimal.getHealth()) &&
-              this.getAge().equals(newEndangerAnimal.getAge()) &&
-              this.getId() == newEndangerAnimal.getId();
-    }
-  }
-
   public static List<EndangerAnimal> all() {
-    String sql = "SELECT * FROM animals WHERE type='endanger';";
     try(Connection con = DB.sql2o.open()){
+      String sql = "SELECT * FROM animals WHERE type = 'endanger';";
       return con.createQuery(sql)
       .throwOnMappingFailure(false)
       .executeAndFetch(EndangerAnimal.class);
     }
   }
 
-  public void saveDatabase() {
+  public void saveEndanger() {
     try(Connection con = DB.sql2o.open()){
       String sql = "INSERT INTO animals (name, health, age, type) VALUES (:name, :health, :age, :type)";
       this.id = (int) con.createQuery(sql, true)
@@ -81,5 +68,17 @@ public class EndangerAnimal extends Animal {
         .executeAndFetchFirst(EndangerAnimal.class);
         return endanger;
       }
+  }
+  @Override
+  public boolean equals(Object otherEndangerAnimal){
+    if(!(otherEndangerAnimal instanceof EndangerAnimal)){
+      return false;
+    }else {
+      EndangerAnimal newEndangerAnimal = (EndangerAnimal) otherEndangerAnimal;
+      return this.getName().equals(newEndangerAnimal.getName()) &&
+              this.getHealth().equals(newEndangerAnimal.getHealth()) &&
+              this.getAge().equals(newEndangerAnimal.getAge()) &&
+              this.getId() == newEndangerAnimal.getId();
+    }
   }
 }
