@@ -34,7 +34,7 @@ SET default_tablespace = '';
 SET default_with_oids = false;
 
 --
--- Name: animals; Type: TABLE; Schema: public; Owner: Guest
+-- Name: animals; Type: TABLE; Schema: public; Owner: divangtrongmo
 --
 
 CREATE TABLE animals (
@@ -46,10 +46,10 @@ CREATE TABLE animals (
 );
 
 
-ALTER TABLE animals OWNER TO "Guest";
+ALTER TABLE animals OWNER TO divangtrongmo;
 
 --
--- Name: animals_id_seq; Type: SEQUENCE; Schema: public; Owner: Guest
+-- Name: animals_id_seq; Type: SEQUENCE; Schema: public; Owner: divangtrongmo
 --
 
 CREATE SEQUENCE animals_id_seq
@@ -60,17 +60,17 @@ CREATE SEQUENCE animals_id_seq
     CACHE 1;
 
 
-ALTER TABLE animals_id_seq OWNER TO "Guest";
+ALTER TABLE animals_id_seq OWNER TO divangtrongmo;
 
 --
--- Name: animals_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: Guest
+-- Name: animals_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: divangtrongmo
 --
 
 ALTER SEQUENCE animals_id_seq OWNED BY animals.id;
 
 
 --
--- Name: sightings; Type: TABLE; Schema: public; Owner: Guest
+-- Name: sightings; Type: TABLE; Schema: public; Owner: divangtrongmo
 --
 
 CREATE TABLE sightings (
@@ -82,10 +82,10 @@ CREATE TABLE sightings (
 );
 
 
-ALTER TABLE sightings OWNER TO "Guest";
+ALTER TABLE sightings OWNER TO divangtrongmo;
 
 --
--- Name: sightings_id_seq; Type: SEQUENCE; Schema: public; Owner: Guest
+-- Name: sightings_id_seq; Type: SEQUENCE; Schema: public; Owner: divangtrongmo
 --
 
 CREATE SEQUENCE sightings_id_seq
@@ -96,81 +96,65 @@ CREATE SEQUENCE sightings_id_seq
     CACHE 1;
 
 
-ALTER TABLE sightings_id_seq OWNER TO "Guest";
+ALTER TABLE sightings_id_seq OWNER TO divangtrongmo;
 
 --
--- Name: sightings_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: Guest
+-- Name: sightings_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: divangtrongmo
 --
 
 ALTER SEQUENCE sightings_id_seq OWNED BY sightings.id;
 
 
 --
--- Name: id; Type: DEFAULT; Schema: public; Owner: Guest
+-- Name: id; Type: DEFAULT; Schema: public; Owner: divangtrongmo
 --
 
 ALTER TABLE ONLY animals ALTER COLUMN id SET DEFAULT nextval('animals_id_seq'::regclass);
 
 
 --
--- Name: id; Type: DEFAULT; Schema: public; Owner: Guest
+-- Name: id; Type: DEFAULT; Schema: public; Owner: divangtrongmo
 --
 
 ALTER TABLE ONLY sightings ALTER COLUMN id SET DEFAULT nextval('sightings_id_seq'::regclass);
 
 
 --
--- Data for Name: animals; Type: TABLE DATA; Schema: public; Owner: Guest
+-- Data for Name: animals; Type: TABLE DATA; Schema: public; Owner: divangtrongmo
 --
 
 COPY animals (id, name, health, age, type) FROM stdin;
-1	\N	\N	\N	\N
-2	\N	\N	\N	\N
-3	batman	\N	\N	\N
-4	batman	\N	\N	\N
-5	batman	\N	\N	\N
-6	batman	\N	\N	\N
-7	batman	\N	\N	\N
-8	robbin	\N	\N	\N
-9	Batman	\N	\N	\N
-10	test1	\N	\N	\N
-11	test2	\N	\N	\N
-12	Robbin	\N	\N	nonendanger
-13	test1	Healthy	Newborn	endanger
+1	Nhat	\N	\N	nonendanger
+2		\N	\N	nonendanger
 \.
 
 
 --
--- Name: animals_id_seq; Type: SEQUENCE SET; Schema: public; Owner: Guest
+-- Name: animals_id_seq; Type: SEQUENCE SET; Schema: public; Owner: divangtrongmo
 --
 
-SELECT pg_catalog.setval('animals_id_seq', 13, true);
+SELECT pg_catalog.setval('animals_id_seq', 2, true);
 
 
 --
--- Data for Name: sightings; Type: TABLE DATA; Schema: public; Owner: Guest
+-- Data for Name: sightings; Type: TABLE DATA; Schema: public; Owner: divangtrongmo
 --
 
 COPY sightings (id, location, rangername, animalid, timesighted) FROM stdin;
-1	Gotham	Gordan	1	2016-10-03 17:38:03.732422
-2	Gotham	Gordan	2	2016-10-03 17:39:06.156757
-3	gotham	gordan	3	2016-10-03 17:40:47.533683
-4	gotham	ranger 	1	2016-10-03 18:11:05.422606
-5	downtown	nate	8	2016-10-03 18:13:37.888396
-6	LA	ranger 	12	2016-10-03 23:05:03.332959
-7	Home	Sandman	13	2016-10-03 23:09:33.215469
+1	Hoang	cool	1	2016-10-04 16:01:11.082891
+2			2	2016-10-04 16:13:28.054843
 \.
 
 
 --
--- Name: sightings_id_seq; Type: SEQUENCE SET; Schema: public; Owner: Guest
+-- Name: sightings_id_seq; Type: SEQUENCE SET; Schema: public; Owner: divangtrongmo
 --
 
-SELECT pg_catalog.setval('sightings_id_seq', 7, true);
+SELECT pg_catalog.setval('sightings_id_seq', 2, true);
 
 
 --
--- Name: animals_pkey; Type: CONSTRAINT; Schema: public; Owner: Guest
+-- Name: animals_pkey; Type: CONSTRAINT; Schema: public; Owner: divangtrongmo
 --
 
 ALTER TABLE ONLY animals
@@ -178,7 +162,7 @@ ALTER TABLE ONLY animals
 
 
 --
--- Name: sightings_pkey; Type: CONSTRAINT; Schema: public; Owner: Guest
+-- Name: sightings_pkey; Type: CONSTRAINT; Schema: public; Owner: divangtrongmo
 --
 
 ALTER TABLE ONLY sightings
@@ -186,12 +170,12 @@ ALTER TABLE ONLY sightings
 
 
 --
--- Name: public; Type: ACL; Schema: -; Owner: epicodus
+-- Name: public; Type: ACL; Schema: -; Owner: divangtrongmo
 --
 
 REVOKE ALL ON SCHEMA public FROM PUBLIC;
-REVOKE ALL ON SCHEMA public FROM epicodus;
-GRANT ALL ON SCHEMA public TO epicodus;
+REVOKE ALL ON SCHEMA public FROM divangtrongmo;
+GRANT ALL ON SCHEMA public TO divangtrongmo;
 GRANT ALL ON SCHEMA public TO PUBLIC;
 
 
