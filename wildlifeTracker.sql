@@ -124,6 +124,17 @@ ALTER TABLE ONLY sightings ALTER COLUMN id SET DEFAULT nextval('sightings_id_seq
 --
 
 COPY animals (id, name, endanger, health, age) FROM stdin;
+1	\N	No	\N	\N
+2	\N	No	\N	\N
+3	batman	No	\N	\N
+4	batman	No	\N	\N
+5	batman	No	\N	\N
+6	batman	No	\N	\N
+7	batman	No	\N	\N
+8	robbin	No	\N	\N
+9	Batman	Yes	\N	\N
+10	test1	Yes	\N	\N
+11	test2	Yes	\N	\N
 \.
 
 
@@ -131,7 +142,7 @@ COPY animals (id, name, endanger, health, age) FROM stdin;
 -- Name: animals_id_seq; Type: SEQUENCE SET; Schema: public; Owner: Guest
 --
 
-SELECT pg_catalog.setval('animals_id_seq', 1, false);
+SELECT pg_catalog.setval('animals_id_seq', 11, true);
 
 
 --
@@ -139,6 +150,11 @@ SELECT pg_catalog.setval('animals_id_seq', 1, false);
 --
 
 COPY sightings (id, location, rangername, animalid, timesighted) FROM stdin;
+1	Gotham	Gordan	1	2016-10-03 17:38:03.732422
+2	Gotham	Gordan	2	2016-10-03 17:39:06.156757
+3	gotham	gordan	3	2016-10-03 17:40:47.533683
+4	gotham	ranger 	1	2016-10-03 18:11:05.422606
+5	downtown	nate	8	2016-10-03 18:13:37.888396
 \.
 
 
@@ -146,7 +162,7 @@ COPY sightings (id, location, rangername, animalid, timesighted) FROM stdin;
 -- Name: sightings_id_seq; Type: SEQUENCE SET; Schema: public; Owner: Guest
 --
 
-SELECT pg_catalog.setval('sightings_id_seq', 1, false);
+SELECT pg_catalog.setval('sightings_id_seq', 5, true);
 
 
 --
