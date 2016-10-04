@@ -5,21 +5,11 @@ import java.util.Arrays;
 import java.sql.Timestamp;
 import java.util.Date;
 import java.text.DateFormat;
-// import org.junit.*;
-// import static org.junit.Assert.*;
-
 
 public abstract class Animal {
   public String name;
   public String type;
   public int id;
-
-
-
-  // public Animal(String _name, String _type) {
-  //   name = _name;
-  //   type = _type;
-  // }
 
   public String getName(){
     return name;
@@ -27,18 +17,10 @@ public abstract class Animal {
   public String getType(){
     return type;
   }
-  // public String getHealth(){
-  //   return health;
-  // }
-  // public String getAge(){
-  //   return age;
-  // }
   public int getId(){
     return id;
   }
-  // public String getType(){
-  //   return type;
-  // }
+
   @Override
   public boolean equals(Object otherAnimal){
     if(!(otherAnimal instanceof Animal)){
@@ -53,7 +35,8 @@ public abstract class Animal {
   // public static List<Animal> all() {
   //   String sql = "SELECT * FROM animals";
   //   try(Connection con = DB.sql2o.open()){
-  //     return con.createQuery(sql).executeAndFetch(Animal.class);
+  //     return con.createQuery(sql)
+  //     .executeAndFetch(Animal.class);
   //   }
   // }
   public List<Sighting> getSighting(){
@@ -64,21 +47,23 @@ public abstract class Animal {
         .executeAndFetch(Sighting.class);
     }
   }
-  public static Animal find (int _id){
-    try(Connection con = DB.sql2o.open()){
-      String sql = "SELECT * FROM animals where id=:id";
-      Animal animal = con.createQuery(sql)
-        .addParameter("id", _id)
-        .executeAndFetchFirst(Animal.class);
-        return animal;
-      }
-  }
+  // public static Animal find (int _id){
+  //   try(Connection con = DB.sql2o.open()){
+  //     String sql = "SELECT * FROM animals where id=:id";
+  //     Animal animal = con.createQuery(sql)
+  //       .addParameter("id", _id)
+  //       .throwOnMappingFailure(false)
+  //       .executeAndFetchFirst(Animal.class);
+  //       return animal;
+  //     }
+  // }
   public void save() {
     try(Connection con = DB.sql2o.open()){
       String sql = "INSERT INTO animals(name, type) VALUES(:name, :type)";
       this.id = (int) con.createQuery(sql, true)
         .addParameter("name", this.name)
-        .addParameter("type", this.type)
+        .addParameter("type", type)
+        .throwOnMappingFailure(false)
         .executeUpdate()
         .getKey();
     }

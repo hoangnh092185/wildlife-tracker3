@@ -40,9 +40,9 @@ SET default_with_oids = false;
 CREATE TABLE animals (
     id integer NOT NULL,
     name character varying,
-    endanger character varying,
     health character varying,
-    age character varying
+    age character varying,
+    type character varying
 );
 
 
@@ -123,18 +123,20 @@ ALTER TABLE ONLY sightings ALTER COLUMN id SET DEFAULT nextval('sightings_id_seq
 -- Data for Name: animals; Type: TABLE DATA; Schema: public; Owner: Guest
 --
 
-COPY animals (id, name, endanger, health, age) FROM stdin;
-1	\N	No	\N	\N
-2	\N	No	\N	\N
-3	batman	No	\N	\N
-4	batman	No	\N	\N
-5	batman	No	\N	\N
-6	batman	No	\N	\N
-7	batman	No	\N	\N
-8	robbin	No	\N	\N
-9	Batman	Yes	\N	\N
-10	test1	Yes	\N	\N
-11	test2	Yes	\N	\N
+COPY animals (id, name, health, age, type) FROM stdin;
+1	\N	\N	\N	\N
+2	\N	\N	\N	\N
+3	batman	\N	\N	\N
+4	batman	\N	\N	\N
+5	batman	\N	\N	\N
+6	batman	\N	\N	\N
+7	batman	\N	\N	\N
+8	robbin	\N	\N	\N
+9	Batman	\N	\N	\N
+10	test1	\N	\N	\N
+11	test2	\N	\N	\N
+12	Robbin	\N	\N	nonendanger
+13	test1	Healthy	Newborn	endanger
 \.
 
 
@@ -142,7 +144,7 @@ COPY animals (id, name, endanger, health, age) FROM stdin;
 -- Name: animals_id_seq; Type: SEQUENCE SET; Schema: public; Owner: Guest
 --
 
-SELECT pg_catalog.setval('animals_id_seq', 11, true);
+SELECT pg_catalog.setval('animals_id_seq', 13, true);
 
 
 --
@@ -155,6 +157,8 @@ COPY sightings (id, location, rangername, animalid, timesighted) FROM stdin;
 3	gotham	gordan	3	2016-10-03 17:40:47.533683
 4	gotham	ranger 	1	2016-10-03 18:11:05.422606
 5	downtown	nate	8	2016-10-03 18:13:37.888396
+6	LA	ranger 	12	2016-10-03 23:05:03.332959
+7	Home	Sandman	13	2016-10-03 23:09:33.215469
 \.
 
 
@@ -162,7 +166,7 @@ COPY sightings (id, location, rangername, animalid, timesighted) FROM stdin;
 -- Name: sightings_id_seq; Type: SEQUENCE SET; Schema: public; Owner: Guest
 --
 
-SELECT pg_catalog.setval('sightings_id_seq', 5, true);
+SELECT pg_catalog.setval('sightings_id_seq', 7, true);
 
 
 --
