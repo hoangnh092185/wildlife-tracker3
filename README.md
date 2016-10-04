@@ -1,4 +1,4 @@
-# :file_folder: [Wildlife_Tracker](https://github.com/hoangnh092185/wildlife_tracker-) :file_folder:
+# :file_folder: [Wildlife_Tracker](https://github.com/hoangnh092185/wildlife-tracker3.git) :file_folder:
 
 
   __Version 1.0.0: September 23, 2016__
@@ -29,7 +29,7 @@ In PSQL:
 * CREATE DATABASE wildlife_tracker_test WITH TEMPLATE wildlife_tracker;
 
 ### Setup/Installation
-*Clone or download and extract to use, or click [here](https://github.com/hoangnh092185/wildlife_tracker-) to view.*
+*Clone or download and extract to use, or click [here](https://github.com/hoangnh092185/wildlife-tracker3.git) to view.*
 
 
 ### Technologies Used
