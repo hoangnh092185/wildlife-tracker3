@@ -41,8 +41,10 @@ public class App {
       newNonEndanger.saveNon();
       Sighting newSighting = new Sighting(request.queryParams("location"), request.queryParams("rangername"), newNonEndanger.getId());
       newSighting.save();
-      model.put("animals", NonEndangerAnimal.all());
-      model.put("sightings", Sighting.all());
+      model.put("nons", NonEndangerAnimal.all());
+      model.put("nontings", Sighting.all());
+      model.put("endangers", EndangerAnimal.all());
+      // model.put("ensightings", Sighting.all());
       model.put("template","templates/wild.vtl");
       return new ModelAndView(model, layout);
     }, new VelocityTemplateEngine());
@@ -53,11 +55,12 @@ public class App {
       newEndanger.saveEndanger();
       Sighting newSighting = new Sighting(request.queryParams("location"), request.queryParams("rangername"), newEndanger.getId());
       newSighting.save();
-      model.put("animals", EndangerAnimal.all());
-      model.put("sightings", Sighting.all());
+      model.put("nons", NonEndangerAnimal.all());
+      // model.put("nontings", Sighting.all());
+      model.put("endangers", EndangerAnimal.all());
+      model.put("ensightings", Sighting.all());
       model.put("template","templates/wild.vtl");
       return new ModelAndView(model, layout);
     }, new VelocityTemplateEngine());
-
   }
 }

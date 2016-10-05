@@ -19,6 +19,7 @@ public class NonEndangerAnimal extends Animal {
     return name;
   }
   public void saveNon() {
+    
     try(Connection con = DB.sql2o.open()){
       String sql = "INSERT INTO animals(name, type) VALUES(:name, :type)";
       this.id = (int) con.createQuery(sql, true)

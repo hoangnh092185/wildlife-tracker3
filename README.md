@@ -1,24 +1,23 @@
 # :file_folder: [Wildlife_Tracker](https://github.com/hoangnh092185/wildlife-tracker3.git) :file_folder:
 
 
-  __Version 1.0.0: September 23, 2016__
+  __Version 1.0.0: September 30, 2016__
 ## by [Nhat Hoang](https://github.com/hoangnh092185)
 
 ### Description
 __*Individual Project for Epicodus Java Programming*__
 
-Create a webpage that have all the elements that meet the client needs listed below.
-Test all the class methods with gradle test function before integrating functionality into Sparks.
-Include CRUD functionality include for each class in Sparks.
-Spark routes fallow RESTful convention.
+## Objectives
+
+* An interface or inherited class provides similar content in different classes.
+* Database timestamps are included for each sighting.
+* At least two Exceptions can be thrown and caught.
+* Constants are used in at least one class.
 
 ## stories
-* As a park ranger, I need to be able to see a list of all sighted animals.
-* As an ranger, I need to be able to select a animal, see their health, and see a * list of all rangers that seen that animal.
-* As an ranger, I need to add new animals to our system when they are sighted.
-* As an ranger, I need to be able to add new animals to a specific animal species.
-* As an ranger, I need to be able to update a animal's details.
-* As an ranger, I need to be able to update a ranger's details.
+* As a park ranger, I need to be able to add sighted animals to the animal list.
+* As an ranger, I need to be able to add additional information for endanger animal : health, age.
+* As an ranger, I need to fill where, when and who when document animal.
 
 ## Setup
 

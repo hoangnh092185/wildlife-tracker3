@@ -1,12 +1,51 @@
 <h3>test</h3>
 
 
-<div class="">
-  <div class="">
-    <ul>
-      #foreach($animal in $animals)
-        <li>$animal.getName()</li>
-      #end
-    </ul>
+<div class="Container">
+  <div class="row jumbotron">
+    <div class="col-md-4">
+      <h4>Animal</h4>
+      Animal  | Health | Age | Status
+      <ul>
+        #foreach($endanger in $endangers)
+          <li>$endanger.getName() | $endanger.getHealth() | $endanger.getAge() | $endanger.getType()</li>
+        #end
+      </ul>
+    </div>
+    <div class="col-md-4">
+      <h4>Ranger</h4>
+      Name | Location | Time
+      <ul>
+        #foreach($ensighting in $ensightings)
+          <li>$ensighting.getRangerName() | $ensighting.getLocation() | $ensighting.getTimeSighted()</li>
+        #end
+      </ul>
+    </div>
   </div>
+  <div class="row jumbotron">
+    <div class="col-md-4">
+      <h4>Animal</h4>
+      Animal  | Status
+      <ul>
+        #foreach($non in $nons)
+          <li>$non.getName() | $non.getType()</li>
+        #end
+      </ul>
+    </div>
+    <div class="col-md-4">
+      <h4>Ranger</h4>
+      Name | Location | Time
+      <ul>
+        #foreach($nonting in $nontings)
+          <li>$nonting.getRangerName() | $nonting.getLocation() | $nonting.getTimeSighted()</li>
+        #end
+      </ul>
+    </div>
+  </div>
+  </div>
+
+  <div class="">
+
+  </div>
+
 </div>

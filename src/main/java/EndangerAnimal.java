@@ -13,13 +13,13 @@ public class EndangerAnimal extends Animal {
 
   public static final String DATABASE_TYPE = "endanger";
 
-  public static final String Health_Level_1 = "Poor";
-  public static final String Health_Level_2 = "Good";
-  public static final String Health_Level_3 = "Healthy";
+  public static final String HEALTH_LEVEL_1 = "Poor";
+  public static final String HEALTH_LEVEL_2 = "Good";
+  public static final String HEALTH_LEVEL_3 = "Healthy";
 
-  public static final String Age_Level_1 = "New Born";
-  public static final String Age_Level_2 = "Young";
-  public static final String Age_Level_3 = "Adult";
+  public static final String AGE_LEVEL_1 = "New Born";
+  public static final String AGE_LEVEL_2 = "Young";
+  public static final String AGE_LEVEL_3 = "Adult";
 
   public EndangerAnimal(String _name, String _health, String _age) {
     name = _name;
@@ -28,9 +28,6 @@ public class EndangerAnimal extends Animal {
     type = DATABASE_TYPE;
   }
 
-  // public String getName(){
-  //   return name;
-  // }
   public String getHealth(){
     return health;
   }
@@ -48,6 +45,7 @@ public class EndangerAnimal extends Animal {
   }
 
   public void saveEndanger() {
+    
     try(Connection con = DB.sql2o.open()){
       String sql = "INSERT INTO animals (name, health, age, type) VALUES (:name, :health, :age, :type)";
       this.id = (int) con.createQuery(sql, true)

@@ -48,13 +48,40 @@ public class Sighting {
     }
   }
   public static List<Sighting> all() {
-    String sql = "SELECT * FROM sightings ORDER BY location";
+    String sql = "SELECT * FROM sightings ORDER BY animalid";
     try(Connection con = DB.sql2o.open()){
       return con.createQuery(sql)
         .executeAndFetch(Sighting.class);
     }
   }
+  public static List<Sighting> allEndanger() {
+    String sql = "SELECT * FROM sightings, animals WHERE sightings.animalid = animals.id AND animals.type = 'endanger';";
+    try(Connection con = DB.sql2o.open()){
+      return con.createQuery(sql)
+        .executeAndFetch(Sighting.class);
+    }
+  }
+  // public List<Object> allEndanger() {
+  //     List<Object> allAnimals = new ArrayList<Object>();
+  //     try(Connection con = DB.sql2o.open()) {
+  //       String sqlNon = "SELECT * FROM animals WHERE type='nonendanger';";
+  //       List<NonEndangerAnimal> nonAnimals = con.createQuery(sqlNon)
+  //         .executeAndFetch(NonEndangerAnimal.class);
+  //       allAnimals.addAll(nonAnimals);
+  //     }
+  //     return allAnimals;
+  // }
+  // public static List<Sighting> allNonEndanger() {
+  //   String sql = "SELECT * FROM sightings, animals WHERE sightings.animalid = animals.id AND animals.type = 'nonendanger';";
+  //   try(Connection con = DB.sql2o.open()){
+  //     return con.createQuery(sql)
+  //       .executeAndFetch(Sighting.class);
+  //   }
+  // }
   public void save(){
+    if (this.rangerName == null){
+      throw new UnsupportedOperationException("Field Can't be empty");
+    }
     try(Connection con = DB.sql2o.open()){
       String sql = "INSERT INTO sightings(location, rangername, animalid, timesighted) VALUES(:location, :rangername, :animalid, now())";
       this.id = (int) con.createQuery(sql, true)
@@ -91,14 +118,21 @@ public class Sighting {
       .executeUpdate();
     }
   }
-  // public static List<Animal> searchAnimals(String searchAnimals){
-  //   try(Connection con = DB.sql2o.open()){
-  //     String sqlEndanger = "SELECT * FROM animals where endanger = 'true';";
-  //
-  //
-  //     return con.createQuery(sql)
-  //       .addParameter("searchAnimals", searchAnimals)
-  //       .executeAndFetch(Animal.class);
-  //   }
-  // }
+  public List<Object> getAnimals() {
+      List<Object> allAnimals = new ArrayList<Object>();
+
+      try(Connection con = DB.sql2o.open()) {
+        String sqlNon = "SELECT * FROM animals WHERE type='nonendanger';";
+        List<NonEndangerAnimal> nonAnimals = con.createQuery(sqlNon)
+          .executeAndFetch(NonEndangerAnimal.class);
+        allAnimals.addAll(nonAnimals);
+
+        String sqlEndanger = "SELECT * FROM animals WHERE type = 'endanger';";
+        List<EndangerAnimal> endangerAnimals = con.createQuery(sqlEndanger)
+
+          .executeAndFetch(EndangerAnimal.class);
+          allAnimals.addAll(endangerAnimals);
+        }
+        return allAnimals;
+    }
 }

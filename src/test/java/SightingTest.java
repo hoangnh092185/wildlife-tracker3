@@ -37,9 +37,10 @@ public class SightingTest{
     Sighting anotherSighting = new Sighting("Area 51", "Ranger ET", 1);
     assertTrue(firstSighting.equals(anotherSighting));
   }
+  // @Test(expected = UnsupportedOperationException.class)
   @Test
   public void save_insertsObjectIntoDatabase_sighting() {
-    Sighting firstSighting = new Sighting("Area 51", "Ranger ET", 1);
+    Sighting firstSighting = new Sighting("Area 51","Ranger ET", 1);
     firstSighting.save();
     assertTrue(Sighting.all().get(0).equals(firstSighting));
   }
@@ -67,4 +68,24 @@ public class SightingTest{
       secondSighting.save();
       assertEquals(Sighting.find(secondSighting.getId()), secondSighting);
     }
+    @Test
+    public void getAnimals_retrievesAllAnimalsFromDatabase_animalsList() {
+      Sighting firstSighting = new Sighting("Area 51", "Ranger ET", 1);
+      firstSighting.save();
+      NonEndangerAnimal firstNonEndangerAnimal = new NonEndangerAnimal("Batman");
+      firstNonEndangerAnimal.saveNon();
+      EndangerAnimal firstEndangerAnimal = new EndangerAnimal("Batman", "Healthy", "Adult");
+      firstEndangerAnimal.saveEndanger();
+      Object[] animals = new Object[] {firstNonEndangerAnimal, firstEndangerAnimal };
+      assertTrue(firstSighting.getAnimals().containsAll(Arrays.asList(animals)));
+    }
+    // @Test
+    // public void allEndanger_retrievesAllAnimalsFromDatabase_animalsList() {
+    //   EndangerAnimal firstEndangerAnimal = new EndangerAnimal("Batman", "Healthy", "Adult");
+    //   firstEndangerAnimal.saveEndanger();
+    //   Sighting firstSighting = new Sighting("Area 51", "Ranger ET", firstEndangerAnimal.getId());
+    //   firstSighting.save();
+    //   assertEquals(Sighting.find(firstSighting.getAnimalId()), firstEndangerAnimal.getId());
+    // }
+
 }

@@ -22,16 +22,6 @@ public abstract class Animal {
     return id;
   }
 
-  // public static List<Animal> all() {
-  //   String sql = "SELECT * FROM animals;";
-  //   try(Connection con = DB.sql2o.open()){
-  //     return con.createQuery(sql)
-  //     .throwOnMappingFailure(false)
-  //     .executeAndFetch(Animal.class);
-  //   }
-  // }
-
-
   public List<Sighting> getSighting(){
     try(Connection con = DB.sql2o.open()){
       String sql = "SELECT * FROM sightings where animalId=:id";

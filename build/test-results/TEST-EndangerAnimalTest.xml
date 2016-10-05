@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="EndangerAnimalTest" tests="10" skipped="0" failures="0" errors="0" timestamp="2016-10-05T06:46:08" hostname="epicodus-70.local" time="0.214">
+  <properties/>
+  <testcase name="endangerEndangerAnimal_instantiatesCorrectly_true" classname="EndangerAnimalTest" time="0.085"/>
+  <testcase name="getEndangerAnimal_endangerEndangerAnimalInstantiatesWithName_String" classname="EndangerAnimalTest" time="0.006"/>
+  <testcase name="find_returnsEndangerAnimalWithSameId_secondEndangerAnimal" classname="EndangerAnimalTest" time="0.046"/>
+  <testcase name="save_insertsObjectIntoDatabase_endangerEndangerAnimal" classname="EndangerAnimalTest" time="0.015"/>
+  <testcase name="getEndanger_endangerEndangerAnimalInstantiatesWithAge_String" classname="EndangerAnimalTest" time="0.005"/>
+  <testcase name="equals_returnsTrueIfNameAndEmailAreSame_true" classname="EndangerAnimalTest" time="0.004"/>
+  <testcase name="getEndanger_endangerEndangerAnimalInstantiatesWithType_String" classname="EndangerAnimalTest" time="0.006"/>
+  <testcase name="all_returnsAllInstancesOfEndangerAnimal_true" classname="EndangerAnimalTest" time="0.025"/>
+  <testcase name="save_assignsIdToObject" classname="EndangerAnimalTest" time="0.014"/>
+  <testcase name="getEndanger_endangerEndangerAnimalInstantiatesWithHealth_String" classname="EndangerAnimalTest" time="0.004"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
