@@ -19,7 +19,9 @@ public class NonEndangerAnimal extends Animal {
     return name;
   }
   public void saveNon() {
-    
+    if (this.name.length()<=0){
+      throw new UnsupportedOperationException("Field Can't be empty");
+    }
     try(Connection con = DB.sql2o.open()){
       String sql = "INSERT INTO animals(name, type) VALUES(:name, :type)";
       this.id = (int) con.createQuery(sql, true)

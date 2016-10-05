@@ -79,7 +79,7 @@ public class Sighting {
   //   }
   // }
   public void save(){
-    if (this.rangerName == null){
+    if (this.rangerName.length()<=0){
       throw new UnsupportedOperationException("Field Can't be empty");
     }
     try(Connection con = DB.sql2o.open()){

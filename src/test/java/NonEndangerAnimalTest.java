@@ -32,6 +32,12 @@ public class NonEndangerAnimalTest {
     NonEndangerAnimal anotherNonEndangerAnimal = new NonEndangerAnimal("Batman");
     assertTrue(firstNonEndangerAnimal.equals(anotherNonEndangerAnimal));
   }
+  @Test(expected = UnsupportedOperationException.class)
+  public void throw_insertsObjectIntoDatabase_Catch() {
+    NonEndangerAnimal firstNonEndangerAnimal = new NonEndangerAnimal("");
+    firstNonEndangerAnimal.saveNon();
+    // assertTrue(NonEndangerAnimal.all().get(0).equals(firstNonEndangerAnimal));
+  }
   @Test
   public void save_insertsObjectIntoDatabase_animal() {
     NonEndangerAnimal firstNonEndangerAnimal = new NonEndangerAnimal("Batman");

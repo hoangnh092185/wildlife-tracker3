@@ -37,7 +37,12 @@ public class SightingTest{
     Sighting anotherSighting = new Sighting("Area 51", "Ranger ET", 1);
     assertTrue(firstSighting.equals(anotherSighting));
   }
-  // @Test(expected = UnsupportedOperationException.class)
+  @Test(expected = UnsupportedOperationException.class)
+  public void saveThrow_insertsObjectIntoDatabase_CatchName() {
+    Sighting firstSighting = new Sighting("Area 51","", 1);
+    firstSighting.save();
+    // assertTrue(Sighting.all().get(0).equals(firstSighting));
+  }
   @Test
   public void save_insertsObjectIntoDatabase_sighting() {
     Sighting firstSighting = new Sighting("Area 51","Ranger ET", 1);

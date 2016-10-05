@@ -1,13 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="NonEndangerAnimalTest" tests="8" skipped="0" failures="0" errors="0" timestamp="2016-10-05T06:46:08" hostname="epicodus-70.local" time="0.092">
+<testsuite name="NonEndangerAnimalTest" tests="9" skipped="0" failures="0" errors="0" timestamp="2016-10-05T15:34:33" hostname="epicodus-13.local" time="0.092">
   <properties/>
-  <testcase name="save_insertsObjectIntoDatabase_animal" classname="NonEndangerAnimalTest" time="0.014"/>
-  <testcase name="find_returnsNonEndangerAnimalWithSameId_secondNonEndangerAnimal" classname="NonEndangerAnimalTest" time="0.017"/>
+  <testcase name="save_insertsObjectIntoDatabase_animal" classname="NonEndangerAnimalTest" time="0.015"/>
+  <testcase name="find_returnsNonEndangerAnimalWithSameId_secondNonEndangerAnimal" classname="NonEndangerAnimalTest" time="0.018"/>
   <testcase name="getNonEndangerAnimal_animalInstantiatesWithName_String" classname="NonEndangerAnimalTest" time="0.004"/>
-  <testcase name="allNonEndanger_returnsAllInstancesOfNonEndangerAnimal_true" classname="NonEndangerAnimalTest" time="0.027"/>
+  <testcase name="allNonEndanger_returnsAllInstancesOfNonEndangerAnimal_true" classname="NonEndangerAnimalTest" time="0.021"/>
   <testcase name="getNonEndangerAnimal_animalInstantiatesWithType_String" classname="NonEndangerAnimalTest" time="0.004"/>
   <testcase name="animal_instantiatesCorrectly_true" classname="NonEndangerAnimalTest" time="0.005"/>
-  <testcase name="save_assignsIdToObject" classname="NonEndangerAnimalTest" time="0.014"/>
+  <testcase name="save_assignsIdToObject" classname="NonEndangerAnimalTest" time="0.013"/>
+  <testcase name="throw_insertsObjectIntoDatabase_Catch" classname="NonEndangerAnimalTest" time="0.004"/>
   <testcase name="equals_returnsTrueIfNameAndTypeAreSame_true" classname="NonEndangerAnimalTest" time="0.004"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
