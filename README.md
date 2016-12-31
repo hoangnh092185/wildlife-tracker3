@@ -5,7 +5,7 @@
 ## by [Nhat Hoang](https://github.com/hoangnh092185)
 
 ### Description
-__*Individual Project for Epicodus Java Programming*__
+__*Wildlife tracker is written in java. This browser is to demonstrate UI interface, and able to store data in the backend. The user can retrieved the data even refreshing the browser.*__
 
 ## Objectives
 
